@@ -2,8 +2,10 @@
 <Defs>
 <!--============================== BaseRoofBuilding ==============================-->
 <ThingDef ParentName="BuildingBase" Name="RoofPyon_BaseRoofBuilding" Abstract="True">
-    <thingClass>Building</thingClass>
+    <thingClass>TransparentThings.RoofSetter</thingClass>
     <category>Building</category>
+    <selectable>true</selectable>
+    <altitudeLayer>MetaOverlays</altitudeLayer>
     <graphicData>
         <graphicClass>Graphic_Multi</graphicClass>
         <damageData>
@@ -11,7 +13,6 @@
         </damageData>
     </graphicData>
     <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
-    <altitudeLayer>PawnUnused</altitudeLayer>
 	<castEdgeShadows>false</castEdgeShadows>
 	<passability>Standable</passability>
     <blockWind>true</blockWind>
@@ -20,7 +21,6 @@
     <placingDraggableDimensions>1</placingDraggableDimensions>
     <tickerType>Never</tickerType>
     <rotatable>true</rotatable>
-    <selectable>true</selectable>
     <neverMultiSelect>true</neverMultiSelect>
     <holdsRoof>true</holdsRoof>
     <designationCategory>Structure</designationCategory>
@@ -49,11 +49,11 @@
     <graphicData>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>CutoutComplex</shaderType>
-      <texPath>roof</texPath>
+      <texPath>roof1</texPath>
       <drawSize>(7,9)</drawSize>
     </graphicData>
     <holdsRoof>false</holdsRoof>
-    <uiIconPath>roof</uiIconPath>
+    <uiIconPath>roof1</uiIconPath>
     <statBases>
       <MaxHitPoints>300</MaxHitPoints>
       <WorkToBuild>135</WorkToBuild>
@@ -73,8 +73,11 @@
 	  <canPlaceOverWall>true</canPlaceOverWall>
     </building>	
 	<size>(7,9)</size>
-
 	<modExtensions>
+		<li Class="TransparentThings.ThingExtension">
+			<transparentWhenPawnIsInsideArea>true</transparentWhenPawnIsInsideArea>
+			<firstArea>(7,9)</firstArea>
+		</li>
 	</modExtensions>
   </ThingDef>
     
